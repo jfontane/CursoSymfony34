@@ -1,0 +1,7 @@
+curso_symfony_eventos_homepage:
+    path:     /
+    defaults: { _controller: CursoSymfonyEventosBundle:Default:index }
+
+estatica:
+    path: /sitio/{pagina}
+    defaults: { _controller: CursoSymfonyEventosBundle:Default:estatica }
