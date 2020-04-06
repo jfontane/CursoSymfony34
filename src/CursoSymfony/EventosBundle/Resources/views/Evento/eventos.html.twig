@@ -1,0 +1,14 @@
+<html><body> <!-- borrar -->
+        <h1>Eventos</h1>
+        {% for evento in eventos %}
+            <div>
+                <div class="grid_2 alpha">
+                    {{ evento.hora | date('H:i') }} - {{ evento.horaFinalizacion | date('H:i') }}
+                </div>
+                <div class="grid_10 omega">
+                    <a href="#RUTA_A_DETALLE">{{ evento.titulo }}</a>
+                    <p>{{ evento.descripcion }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </body></html> <!-- borrar -->

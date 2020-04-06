@@ -7,9 +7,9 @@ use CursoSymfony\EventosBundle\Common\Util;
 
 /**
  * CursoSymfony\EventosBundle\Entity
- *
+ * 
  * @ORM\Table(name="evento")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CursoSymfony\EventosBundle\Repository\EventoRepository")
  */
 class Evento {
 
@@ -95,7 +95,7 @@ class Evento {
      */
     public function setTitulo($titulo) {
         $this->titulo = $titulo;
-
+        $this->setSlug(Util::slugify($this->titulo));
         return $this;
     }
 
@@ -293,10 +293,13 @@ class Evento {
         return $this->usuarios;
     }
 
-    public function setTitulo($titulo) {
-        $this->titulo = $titulo;
-        $this->setSlug(Util::slugify($this->titulo));
-        return $this;
+    /**
+     * Get horaFinalizacion
+     *
+     * @return time $horafinalizacion
+     */
+    public function getHoraFinalizacion() {
+        return $this->hora->add(new \DateInterval('PT' . $this->duracion . 'M'));
     }
 
 }

@@ -38,6 +38,11 @@ class Disertante {
      * @ORM\Column(type="string")
      */
     protected $telefono;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $direccion;
 
     /**
      * @ORM\Column(type="string")
