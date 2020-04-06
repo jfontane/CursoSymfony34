@@ -1,0 +1,32 @@
+<html><body> <!-- borrar -->
+        <h1>Disertantes</h1>
+        {% for disertante in disertantes %}
+            <div class="grid_9 alpha">
+                <h2><a href="#RUTA_A_DETALLE_DISERTANTE">{{ disertante.nombreCompleto }}</a></h2>
+                <p>{{ disertante.biografia}}</p>
+                <p><strong>Imparte los siguientes eventos</strong></p>
+                <ul>
+                    {% for evento in disertante.eventos %}
+                        <li>
+                            <a href="{{ path('evento', { 'slug': evento.slug}) }}">{{ evento.titulo }}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <p>No imparte ningún evento</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="grid_3 omega">
+                <p><strong>Más información</strong></p>
+                <ul>
+                    {% if disertante.twitter %}
+                        <li><a href="{{ disertante.twitter }}">Twitter</a></li>
+                        {% endif %}
+                        {% if disertante.linkedin %}
+                        <li><a href="{{ disertante.linkedin }}">Linkedin</a></li>
+                        {% endif %}
+                </ul>
+            </div>
+        {% endfor %}
+    </body></html> <!-- borrar -->

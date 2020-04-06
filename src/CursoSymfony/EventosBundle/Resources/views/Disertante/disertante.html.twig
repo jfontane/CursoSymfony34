@@ -1,0 +1,35 @@
+<html><body> <!-- borrar -->
+        <h1>{{disertante}}</h1>
+        <p>{{disertante.biografia}}</p>
+        <p><strong>Teléfono:</strong> {{disertante.telefono}}</p>
+        <p><strong>Página:</strong> {{disertante.url}}</p>
+        <p><strong>Imparte los siguientes eventos</strong></p>
+        <ul>
+            <!-- ITERACIÓN SOBRE LOS EVENTOS DE UN DISERTANTE -->
+            {% for evento in disertante.eventos %}
+
+                <li>
+                    <a href="{{ path('evento', {'slug': evento.slug} ) }}">{{evento.titulo}}</a>
+                    <div>
+                        <div class="grid_2 alpha">
+                            {{ evento.hora | date('H:i') }} - {{ evento.horaFinalizacion | date('H:i') }}
+                        </div>
+                        <div class="grid_10 omega">
+                            <p>{{ evento.descripcion }}</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- CONSIDERAR EL CASO DE QUE NO EXISTAN EVENTOS -->
+            {% else %}
+                <li>
+                    <div class="grid_10 omega">
+                        <p>No Imparte Eventos</p>
+                    </div>
+                </li>    
+
+                <!-- FIN ITERACIÓN SOBRE LOS EVENTOS DE UN DISERTANTE -->
+            {% endfor %}
+        </ul>
+    </body></html> <!-- borrar -->
+
+

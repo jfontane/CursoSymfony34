@@ -1,0 +1,19 @@
+<html><body> <!-- borrar -->
+<h1>{{ evento.titulo }}</h1>
+<p>{{ evento.descripcion }}</p>
+<div class="grid_2 alpha">
+ <strong>Fecha</strong> {{ evento.fecha | date("d M") }}
+</div>
+<div class="grid_2">
+ <strong>Hora</strong> {{ evento.hora | date("H:i") }} - {{ evento.horaFinalizacion | date("H:i") }}
+</div>
+<div class="grid_2">
+ <strong>Idioma</strong> {{ evento.idioma }}
+</div>
+<div class="grid_3">
+ <strong>Disertante</strong> <a href="{{path('disertantes')}}">{{ evento.disertante }}</a>
+</div>
+<div class="grid_3 omega">
+
+</div>
+</body></html> <!-- borrar -->

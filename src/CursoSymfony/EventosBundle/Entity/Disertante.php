@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CursoSymfony\EventosBundle\Entity;
  *
  * @ORM\Table(name="disertante")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CursoSymfony\EventosBundle\Repository\DisertanteRepository")
  */
 class Disertante {
 
@@ -38,7 +38,7 @@ class Disertante {
      * @ORM\Column(type="string")
      */
     protected $telefono;
-    
+
     /**
      * @ORM\Column(type="string")
      */
@@ -72,8 +72,7 @@ class Disertante {
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->eventos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -82,8 +81,7 @@ class Disertante {
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -94,8 +92,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -106,8 +103,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -118,8 +114,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setApellidos($apellidos)
-    {
+    public function setApellidos($apellidos) {
         $this->apellidos = $apellidos;
 
         return $this;
@@ -130,8 +125,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getApellidos()
-    {
+    public function getApellidos() {
         return $this->apellidos;
     }
 
@@ -142,8 +136,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setBiografia($biografia)
-    {
+    public function setBiografia($biografia) {
         $this->biografia = $biografia;
 
         return $this;
@@ -154,8 +147,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getBiografia()
-    {
+    public function getBiografia() {
         return $this->biografia;
     }
 
@@ -166,8 +158,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setTelefono($telefono)
-    {
+    public function setTelefono($telefono) {
         $this->telefono = $telefono;
 
         return $this;
@@ -178,8 +169,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getTelefono()
-    {
+    public function getTelefono() {
         return $this->telefono;
     }
 
@@ -190,8 +180,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setUrl($url)
-    {
+    public function setUrl($url) {
         $this->url = $url;
 
         return $this;
@@ -202,8 +191,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getUrl()
-    {
+    public function getUrl() {
         return $this->url;
     }
 
@@ -214,8 +202,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -226,8 +213,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -238,8 +224,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setTwitter($twitter)
-    {
+    public function setTwitter($twitter) {
         $this->twitter = $twitter;
 
         return $this;
@@ -250,8 +235,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getTwitter()
-    {
+    public function getTwitter() {
         return $this->twitter;
     }
 
@@ -262,8 +246,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function setLinkedin($linkedin)
-    {
+    public function setLinkedin($linkedin) {
         $this->linkedin = $linkedin;
 
         return $this;
@@ -274,8 +257,7 @@ class Disertante {
      *
      * @return string
      */
-    public function getLinkedin()
-    {
+    public function getLinkedin() {
         return $this->linkedin;
     }
 
@@ -286,8 +268,7 @@ class Disertante {
      *
      * @return Disertante
      */
-    public function addEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento)
-    {
+    public function addEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento) {
         $this->eventos[] = $evento;
 
         return $this;
@@ -298,8 +279,7 @@ class Disertante {
      *
      * @param \CursoSymfony\EventosBundle\Entity\Evento $evento
      */
-    public function removeEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento)
-    {
+    public function removeEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento) {
         $this->eventos->removeElement($evento);
     }
 
@@ -308,8 +288,16 @@ class Disertante {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEventos()
-    {
+    public function getEventos() {
         return $this->eventos;
     }
+
+    public function getNombreCompleto() {
+        return $this->getNombre() . ' ' . $this->getApellidos();
+    }
+
+    public function __toString() {
+        return $this->getNombreCompleto();
+    }
+
 }

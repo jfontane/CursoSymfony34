@@ -9,7 +9,7 @@
             <ul>
                 {% for evento in eventosCol1 %}
                     <li>
-                        <a href="#RUTA_A_DETALLE">{{ evento.titulo }}</a>
+                        <a href="{{ path('evento', {'slug': evento.slug} ) }}">{{ evento.titulo }}</a>
                         <p>{{ evento.descripcion }}</p>
                     </li>
                 {% else %}
