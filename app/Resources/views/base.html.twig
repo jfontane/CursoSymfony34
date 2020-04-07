@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="utf-8">
+        <title>{% block title %}Symfony 2014{% endblock %} | Eventos</title>
+        <meta name="description" content="{% block metadesc %}Symfony 2{% endblock %}"/>
+        <link href="{{ asset('bundles/cursosymfonyeventos/css/reset.css') }}" rel="stylesheet"
+              type="text/css" />
+        <link href="{{ asset('bundles/cursosymfonyeventos/css/960.css') }}" rel="stylesheet"
+              type="text/css" />
+        <link href="{{ asset('bundles/cursosymfonyeventos/css/main.css') }}" rel="stylesheet"
+              type="text/css" />
+        {% block stylesheets %}
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body id="{% block pageid '' %}">
+        <header>
+            <div class="container_16">
+                {% block header %}
+                {% endblock %}
+            </div>
+        </header>
+        <div class="container_16">
+            {% block body %}
+            {% endblock %}
+            <footer>
+                {% block footer %}
+                    <a href="{{ path('estatica', { 'pagina': 'licencia'}) }}">
+                        &copy; {{ 'now' | date('Y') }} - Curso Desarrollo de Aplicaciones con Symfony 2
+                    </a>
+                    <a href="{{ path('estatica', { 'pagina': 'privacidad'}) }}">
+                        Privacidad
+                    </a>
+                    <a href="{{ path('estatica', { 'pagina': 'condiciones'}) }}">
+                        Condiciones de uso
+                    </a>
+                {% endblock %}
+            </footer>
+        </div>
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>

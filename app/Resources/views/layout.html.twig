@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+{% block header %}
+    <h1 class="grid_5"><a href="#RUTA_A_PORTADA">Symfony 2014</a></h1>
+    <nav class="grid_11">
+        <ul>
+            <li><a href="#RUTA_A_EVENTOS">Eventos</a></li>
+            <li><a href="#RUTA_A_DISERTANTES">Disertantes</a></li>
+            <li><a href="#RUTA_A_CONSULTA">Consulta</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block body %}
+    <article id="contenido">
+        <section id="principal" class="grid_12">
+            {% block contenido %}
+            {% endblock %}
+        </section>
+        <section id="lateral" class="grid_4">
+            {% block lateral %}
+                <div class="usuario">
+                </div>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco <strong>quis nostrud
+                        exercitation </strong> cillum dolore eu fugiat nulla pariatur</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3>Ventajas de asistir</h3> <ul>
+                    <li>Ut enim ad minim veniam</li>
+                    <li>Quis nostrud exercitation ullamco</li>
+                    <li>Officia deserunt mollit anim</li>
+                    <li>Ut aliquip ex ea commodo consequat</li>
+                    <li>Duis aute irure dolor in reprehenderit</li>
+                </ul>
+            {% endblock %}
+        </section>
+    </article>
+{% endblock %}
