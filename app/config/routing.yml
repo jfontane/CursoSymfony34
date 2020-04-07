@@ -1,6 +1,10 @@
 curso_symfony_eventos:
     resource: "@CursoSymfonyEventosBundle/Resources/config/routing.yml"
     prefix:   /
+    
+curso_symfony_eventos_admin:
+    resource: "@CursoSymfonyEventosBundle/Resources/config/routing-admin.yml"
+    prefix:   /admin    
 
 app:
     resource: '@AppBundle/Controller/'

@@ -1,0 +1,17 @@
+admin_portada:
+    path: /
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:listar }
+    
+admin_evento_listar:
+    path: /evento/listar
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:listar }
+    
+admin_evento_inscriptos:
+    path: /evento/inscriptos/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:inscriptos }
+ 
+admin_evento_borrar:
+    path: /evento/borrar/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:borrar }
+
+    

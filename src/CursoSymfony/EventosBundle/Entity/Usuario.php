@@ -54,6 +54,11 @@ class Usuario {
      * @ORM\Column(type="string")
      */
     protected $password;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $notificaciones;
 
     /**
      * @ORM\ManyToMany(targetEntity="Evento", mappedBy="usuarios")

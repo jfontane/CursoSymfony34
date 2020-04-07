@@ -1,0 +1,35 @@
+<html><body> <!-- borrar -->
+        <!-- MENSAJES FLASH ADMIN AQUÍ (utilizar <div class=”flash_admin”> </div>) -->
+        <div class="grid_16">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha/Hora</th>
+                        <th>Título</th>
+                        <th>Idioma</th>
+                        <th>Inscriptos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for evento in eventos %}
+                        <tr>
+                            <td>{{ evento.fecha | date('d/m/Y') }} {{ evento.hora | date('H:i') }} </td>
+                            <td><a href="#RUTA_EDITAR_EVENTO">{{ evento.titulo }}</a></td>
+                            <td>{{ evento.idioma }}</td>
+                            <td>{{ evento.usuarios | length }}</td>
+                            <td>
+                                <a href="{{ path('admin_evento_inscriptos',{'id' : evento.id}) }}">Ver inscriptos</a>
+                                <a href=" {{ path('admin_evento_borrar',{'id': evento.id}) }} ">Borrar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">No existe ningún evento</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="#RUTA_NUEVO_EVENTO">Nuevo evento</a>
+        </div>
+    </body></html> <!-- borrar -->

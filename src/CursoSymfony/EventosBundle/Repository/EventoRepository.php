@@ -9,9 +9,10 @@ class EventoRepository extends EntityRepository {
 
     public function queryEventosAlfabeticamente() {
         $em = $this->getEntityManager();
-        $dql = "SELECT e, d
+        $dql = "SELECT e, d, u
                 FROM CursoSymfonyEventosBundle:Evento e 
                 JOIN e.disertante d
+                JOIN e.usuarios u
                 ORDER BY e.titulo ASC";
         return $em->createQuery($dql);
     }
@@ -29,5 +30,16 @@ class EventoRepository extends EntityRepository {
                 ORDER BY e.titulo ASC";
         return $em->createQuery($dql)->setParameter('slug',$slug)->getResult();
     }
+    
+    public function findEventoConUsuariosPorId($id) {
+        $em = $this->getEntityManager();
+        $dql = "SELECT e, u
+                FROM CursoSymfonyEventosBundle:Evento e 
+                JOIN e.usuarios u
+                WHERE e.id = :id
+                ORDER BY e.titulo ASC";
+        return $em->createQuery($dql)->setParameter('id',$id)->getResult();
+    }
 
+    
 }

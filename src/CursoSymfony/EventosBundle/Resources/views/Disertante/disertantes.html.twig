@@ -2,7 +2,7 @@
         <h1>Disertantes</h1>
         {% for disertante in disertantes %}
             <div class="grid_9 alpha">
-                <h2><a href="#RUTA_A_DETALLE_DISERTANTE">{{ disertante.nombreCompleto }}</a></h2>
+                <h2><a href="{{ path('disertante',{ 'id': disertante.id }) }}">{{ disertante.nombreCompleto }}</a></h2>
                 <p>{{ disertante.biografia}}</p>
                 <p><strong>Imparte los siguientes eventos</strong></p>
                 <ul>
