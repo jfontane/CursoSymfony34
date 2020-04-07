@@ -1,6 +1,10 @@
 {% extends "@CursoSymfonyEventos/layout.html.twig" %}
 {% block title %}Eventos{% endblock %}
-{% block metadesc %}Se impartirán las charlas: {#{eventos | join(", ")}#} {% endblock %}
+{% block metadesc %}Se impartiran las charlas: 
+    {% for evento in eventos %}
+        {{ evento.titulo | join(",") }}
+    {% endfor %}
+{% endblock %}
 {% block pageid 'eventos' %}
 
     {% block contenido %}
