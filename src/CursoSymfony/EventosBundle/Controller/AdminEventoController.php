@@ -32,7 +32,6 @@ class AdminEventoController extends Controller {
         if (null == $evento) {
             throw $this->createNotFoundException('No existe el evento solicitado.');
         }
-// ¡COMPLETAR LÓGICA!
         $em->remove($evento);
         $em->flush();
         AbstractAdminBaseController::addWarnMessage('El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.');
