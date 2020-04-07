@@ -35,8 +35,7 @@ class AdminEventoController extends Controller {
 // ¡COMPLETAR LÓGICA!
         $em->remove($evento);
         $em->flush();
-        AbstractAdminBaseController::addWarnMessage('warn', 'El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.
-');
+        AbstractAdminBaseController::addWarnMessage('El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.');
         return $this->redirect($this->generateUrl('admin_evento_listar'));
     }
 
