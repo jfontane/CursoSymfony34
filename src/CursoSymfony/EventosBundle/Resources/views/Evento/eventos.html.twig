@@ -1,4 +1,11 @@
-<html><body> <!-- borrar -->
+{% extends "@CursoSymfonyEventos/layout.html.twig" %}
+{% block title %}Eventos{% endblock %}
+{% block metadesc %}Se impartirán las charlas: {#{eventos | join(", ")}#} {% endblock %}
+{% block pageid 'eventos' %}
+
+    {% block contenido %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> … </body></html> #}
+
         <h1>Eventos</h1>
         {% for evento in eventos %}
             <div>
@@ -11,4 +18,9 @@
                 </div>
             </div>
         {% endfor %}
-    </body></html> <!-- borrar -->
+    {% endblock %}
+    {% block lateral %}
+        <h3>Falta alg&uacute;n evento?</h3>
+        <p>Accede a la secci&oacute;n <a href="#"><em>Call for papers</em></a> y env&iacute;anos tu propuesta</p>
+        {{ parent() }}
+    {% endblock %}  
