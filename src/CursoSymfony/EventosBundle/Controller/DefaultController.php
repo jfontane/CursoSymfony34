@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller {
 
     public function indexAction() {
-        return new Response("holaaaa");
+        //return new Response("holaaaa");
     }
 
     public function estaticaAction($pagina) {
