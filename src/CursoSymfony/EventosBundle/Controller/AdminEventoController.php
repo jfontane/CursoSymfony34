@@ -6,8 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use CursoSymfony\EventosBundle\Controller\AbstractAdminBaseController;
 
-//use CursoSymfony\EventosBundle\Entity\Usuario;
-
 class AdminEventoController extends Controller {
 
     public function listarAction() {
