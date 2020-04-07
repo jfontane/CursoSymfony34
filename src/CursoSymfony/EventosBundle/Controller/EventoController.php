@@ -4,6 +4,7 @@ namespace CursoSymfony\EventosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class EventoController extends Controller {
 
@@ -15,7 +16,9 @@ class EventoController extends Controller {
         ));
     }
 
-    public function eventoAction($slug) {
+    public function eventoAction(Request $peticion) {
+        //$peticion = $this->getRequest();
+        $slug = $peticion->get('slug');
         $em = $this->getDoctrine()->getManager();
         /*$evento = $em->getRepository('CursoSymfonyEventosBundle:Evento')->findOneBy(array('slug' =>
             $slug));*/

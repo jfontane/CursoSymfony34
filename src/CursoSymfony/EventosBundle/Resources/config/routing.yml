@@ -12,7 +12,9 @@ eventos:
     
 evento:
     path: /evento/{slug}
-    defaults: { _controller: CursoSymfonyEventosBundle:Evento:evento }  
+    defaults: { _controller: CursoSymfonyEventosBundle:Evento:evento }
+    requirements:
+        _method: GET
     
 disertantes:
     path: /disertantes
