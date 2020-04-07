@@ -34,9 +34,9 @@ class AdminEventoController extends Controller {
 // ¡COMPLETAR LÓGICA!
         $em->remove($evento);
         $em->flush();
-        return $this->render('@CursoSymfonyEventos/AdminEvento/borrar.html.twig', array(
-                    'evento' => $evento
-        ));
+        $this->get('session')->getFlashBag()->add('warn', 'El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.
+');
+        return $this->redirect($this->generateUrl('admin_evento_listar'));
     }
 
 }

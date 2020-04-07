@@ -1,5 +1,10 @@
 <html><body> <!-- borrar -->
         <!-- MENSAJES FLASH ADMIN AQUÍ (utilizar <div class=”flash_admin”> </div>) -->
+        <div class="flash_admin">
+            {% for mensaje in app.session.flashbag.get('warn') %}
+                <p class="warn">{{ mensaje }}</p>
+            {% endfor %}
+        </div>
         <div class="grid_16">
             <table>
                 <thead>

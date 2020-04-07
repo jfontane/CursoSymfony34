@@ -5,6 +5,12 @@
             Morbi et massa vel felis malesuada placerat molestie ac est.
         </p>
         <!-- MENSAJES FLASH AQUÍ (utilizar <div class=”flash”> </div>) -->
+        <div class="flash"> 
+            {% for mensaje in app.session.flashbag.get('info') %}
+                <p class="info">{{ mensaje }}</p>
+            {% endfor %}
+
+        </div>
         <div class="grid_6 alpha">
             <ul>
                 {% for evento in eventosCol1 %}

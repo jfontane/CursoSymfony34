@@ -24,6 +24,7 @@ class EventoController extends Controller {
             $slug));*/
         $evento = $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventoConDisertantesPorSlug($slug);
          //var_dump($evento[0]->getDisertante()->getApellidos());die;
+        $this->get('session')->getFlashBag()->add('info','Has leído sobre el evento '.$evento[0]->getTitulo().' a las '.date('H:i:s').'.');
         if (!$evento) {
             throw $this->createNotFoundException("No existe el evento solicitado.");
         }
