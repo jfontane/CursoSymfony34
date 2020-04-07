@@ -4,6 +4,7 @@ namespace CursoSymfony\EventosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use CursoSymfony\EventosBundle\Controller\AbstractAdminBaseController;
 
 //use CursoSymfony\EventosBundle\Entity\Usuario;
 
@@ -34,7 +35,7 @@ class AdminEventoController extends Controller {
 // ¡COMPLETAR LÓGICA!
         $em->remove($evento);
         $em->flush();
-        $this->get('session')->getFlashBag()->add('warn', 'El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.
+        AbstractAdminBaseController::addWarnMessage('warn', 'El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.
 ');
         return $this->redirect($this->generateUrl('admin_evento_listar'));
     }
