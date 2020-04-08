@@ -27,3 +27,7 @@ disertante:
 consulta:
     path: /consulta
     defaults: { _controller: CursoSymfonyEventosBundle:Default:consulta }
+    
+registro:
+    path: /registro
+    defaults: { _controller: CursoSymfonyEventosBundle:Usuario:registro }    

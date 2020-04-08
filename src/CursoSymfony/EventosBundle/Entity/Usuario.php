@@ -4,12 +4,15 @@ namespace CursoSymfony\EventosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use CursoSymfony\EventosBundle\Entity\Evento;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CursoSymfony\EventosBundle\Entity;
  *
  * @ORM\Table(name="usuario")
  * @ORM\Entity()
+ * @UniqueEntity(fields="email")
  */
 class Usuario {
 
@@ -27,11 +30,14 @@ class Usuario {
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3", max="32")
      */
     protected $apellidos;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $dni;
 
@@ -42,19 +48,23 @@ class Usuario {
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $telefono;
 
     /**
      * @ORM\Column(type="string", unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     protected $email;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Length(min="3", max="32")
      */
     protected $password;
-    
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -68,8 +78,7 @@ class Usuario {
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->eventos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -78,8 +87,7 @@ class Usuario {
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -90,8 +98,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -102,8 +109,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -114,8 +120,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setApellidos($apellidos)
-    {
+    public function setApellidos($apellidos) {
         $this->apellidos = $apellidos;
 
         return $this;
@@ -126,8 +131,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getApellidos()
-    {
+    public function getApellidos() {
         return $this->apellidos;
     }
 
@@ -138,8 +142,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setDni($dni)
-    {
+    public function setDni($dni) {
         $this->dni = $dni;
 
         return $this;
@@ -150,8 +153,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getDni()
-    {
+    public function getDni() {
         return $this->dni;
     }
 
@@ -162,8 +164,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setDireccion($direccion)
-    {
+    public function setDireccion($direccion) {
         $this->direccion = $direccion;
 
         return $this;
@@ -174,8 +175,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getDireccion()
-    {
+    public function getDireccion() {
         return $this->direccion;
     }
 
@@ -186,8 +186,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setTelefono($telefono)
-    {
+    public function setTelefono($telefono) {
         $this->telefono = $telefono;
 
         return $this;
@@ -198,8 +197,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getTelefono()
-    {
+    public function getTelefono() {
         return $this->telefono;
     }
 
@@ -210,8 +208,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -222,8 +219,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -234,8 +230,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -246,8 +241,7 @@ class Usuario {
      *
      * @return string
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
@@ -258,8 +252,7 @@ class Usuario {
      *
      * @return Usuario
      */
-    public function addEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento)
-    {
+    public function addEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento) {
         $this->eventos[] = $evento;
 
         return $this;
@@ -270,8 +263,7 @@ class Usuario {
      *
      * @param \CursoSymfony\EventosBundle\Entity\Evento $evento
      */
-    public function removeEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento)
-    {
+    public function removeEvento(\CursoSymfony\EventosBundle\Entity\Evento $evento) {
         $this->eventos->removeElement($evento);
     }
 
@@ -280,8 +272,8 @@ class Usuario {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEventos()
-    {
+    public function getEventos() {
         return $this->eventos;
     }
+
 }
