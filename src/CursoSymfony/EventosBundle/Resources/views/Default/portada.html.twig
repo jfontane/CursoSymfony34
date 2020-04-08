@@ -1,4 +1,11 @@
-<html><body> <!-- borrar -->
+{% extends "@CursoSymfonyEventos/layout.html.twig" %}
+{% block title %}Portada{% endblock %}
+{% block metadesc %}Se impartiran las charlas: 
+{% endblock %}
+{% block pageid 'portada' %}
+
+    {% block contenido %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
         <p>
             <strong>Symfony 2014</strong>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ras varius est ac mi aliquet consectetur.
@@ -13,26 +20,12 @@
         </div>
         <div class="grid_6 alpha">
             <ul>
-                {% for evento in eventosCol1 %}
-                    <li>
-                        <a href="{{ path('evento', {'slug': evento.slug} ) }}">{{ evento.titulo }}</a>
-                        <p>{{ evento.descripcion }}</p>
-                    </li>
-                {% else %}
-                    <li>No hay ningún evento</li>
-                    {% endfor %}
+                {% include '@CursoSymfonyEventos/Default/eventosCol.html.twig' with { 'eventosCol': eventosCol1 }%}
             </ul>
         </div>
         <div class="grid_6 omega">
             <ul>
-                {% for evento in eventosCol2 %}
-                    <li>
-                        <a href="#RUTA_A_DETALLE">{{ evento.titulo }}</a>
-                        <p>{{ evento.descripcion }}</p>
-                    </li>
-                {% else %}
-                    <li>No hay ningún evento</li>
-                    {% endfor %}
+                {% include '@CursoSymfonyEventos/Default/eventosCol.html.twig' with { 'eventosCol': eventosCol2 }%}
             </ul>
         </div>
-    </body></html> <!-- borrar -->
+    {% endblock %}

@@ -1,4 +1,12 @@
-<html><body> <!-- borrar -->
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Inscriptos a "{{ evento.titulo }}"{% endblock %}
+{% block pageid 'admin' %}
+
+    {% block body %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
+
+
+
         <table>
             <thead>
                 <tr>
@@ -25,4 +33,4 @@
                 {% endfor %}
             </tbody>
         </table>
-    </body></html> <!-- borrar -->
+    {% endblock %}

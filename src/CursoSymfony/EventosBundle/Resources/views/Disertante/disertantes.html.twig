@@ -1,14 +1,27 @@
-<html><body> <!-- borrar -->
+{% extends "@CursoSymfonyEventos/layout.html.twig" %}
+{% block title %}Disertantes{% endblock %}
+{% block metadesc %}
+    En esta edición contaremos con:
+    {% for disertante in disertantes %}
+        {% if not loop.last and not loop.first %}, 
+        {% elseif loop.last %}y{% endif %}
+        {{ disertante.nombreCompleto }}
+    {% endfor %}.
+{% endblock %}
+{% block pageid 'disertantes' %}
+
+    {% block contenido %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
         <h1>Disertantes</h1>
         {% for disertante in disertantes %}
             <div class="grid_9 alpha">
                 <h2><a href="{{ path('disertante',{ 'id': disertante.id }) }}">{{ disertante.nombreCompleto }}</a></h2>
-                <p>{{ disertante.biografia}}</p>
+                <p>{{ disertante.biografia | striptags }}</p>
                 <p><strong>Imparte los siguientes eventos</strong></p>
                 <ul>
                     {% for evento in disertante.eventos %}
                         <li>
-                            <a href="{{ path('evento', { 'slug': evento.slug}) }}">{{ evento.titulo }}</a>
+                            <a href="{{ path('evento', { 'slug': evento.slug}) }}">{{ evento.titulo | capitalize }}</a>
                         </li>
                     {% else %}
                         <li>
@@ -29,4 +42,4 @@
                 </ul>
             </div>
         {% endfor %}
-    </body></html> <!-- borrar -->
+    {% endblock %}

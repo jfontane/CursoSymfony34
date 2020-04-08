@@ -1,10 +1,10 @@
 {% extends "base.html.twig" %}
 {% block header %}
-    <h1 class="grid_5"><a href="#RUTA_A_PORTADA">Symfony 2014</a></h1>
+    <h1 class="grid_5"><a href="{{ path('portada') }}">Symfony 3.4</a></h1>
     <nav class="grid_11">
         <ul>
-            <li><a href="#RUTA_A_EVENTOS">Eventos</a></li>
-            <li><a href="#RUTA_A_DISERTANTES">Disertantes</a></li>
+            <li><a href="{{ path('eventos') }}">Eventos</a></li>
+            <li><a href="{{ path('disertantes') }}">Disertantes</a></li>
             <li><a href="#RUTA_A_CONSULTA">Consulta</a></li>
         </ul>
     </nav>

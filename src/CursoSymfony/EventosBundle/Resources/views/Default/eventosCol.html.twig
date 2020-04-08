@@ -1,0 +1,8 @@
+{% for evento in eventosCol %}
+    <li>
+        <a href="{{ path('evento',{'slug': evento.slug} ) }}">{{ evento.titulo }}</a>
+        <p>{{ evento.descripcion }}</p>
+    </li>
+{% else %}
+    <li>No hay ningún evento</li>
+{% endfor %}

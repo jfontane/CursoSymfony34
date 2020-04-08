@@ -1,4 +1,16 @@
-<html><body> <!-- borrar -->
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Admin{% endblock %}
+{% block metadesc %}Se impartiran las charlas: 
+    {% for evento in eventos %}
+        {{ evento.titulo | join(",") }}
+    {% endfor %}
+{% endblock %}
+{% block pageid 'admin' %}
+
+    {% block body %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
+
+
         <!-- MENSAJES FLASH ADMIN AQUÍ (utilizar <div class=”flash_admin”> </div>) -->
         <div class="flash_admin">
             {% for mensaje in app.session.flashbag.get('warn') %}
@@ -37,4 +49,4 @@
             </table>
             <a href="#RUTA_NUEVO_EVENTO">Nuevo evento</a>
         </div>
-    </body></html> <!-- borrar -->
+    {% endblock %}
