@@ -1,0 +1,9 @@
+{% extends "@CursoSymfonyEventos/layout.html.twig" %}
+{% block title %}Si usted tiene alguna consulta, no dude en contactarnos!{% endblock %}
+{% block pageid 'consulta' %}
+    {% block contenido %}
+        <h1>Consulta</h1>
+        <p>Si usted tiene alguna consulta, no dude en contactarnos!</p>
+        <br/>
+        {{ form(form) }}
+    {% endblock %}

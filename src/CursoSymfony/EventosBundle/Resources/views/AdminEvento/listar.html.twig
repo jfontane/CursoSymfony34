@@ -1,10 +1,5 @@
 {% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
-{% block title %}Admin{% endblock %}
-{% block metadesc %}Se impartiran las charlas: 
-    {% for evento in eventos %}
-        {{ evento.titulo | join(",") }}
-    {% endfor %}
-{% endblock %}
+{% block title %}Listado de Eventos{% endblock %}
 {% block pageid 'admin' %}
 
     {% block body %}

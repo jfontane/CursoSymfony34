@@ -23,3 +23,7 @@ disertantes:
 disertante:
     path: /disertante/{id}
     defaults: { _controller: CursoSymfonyEventosBundle:Disertante:disertante }
+    
+consulta:
+    path: /consulta
+    defaults: { _controller: CursoSymfonyEventosBundle:Default:consulta }
