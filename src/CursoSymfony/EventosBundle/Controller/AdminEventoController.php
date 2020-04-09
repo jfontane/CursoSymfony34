@@ -15,7 +15,7 @@ class AdminEventoController extends Controller {
     public function listarAction() {
         $em = $this->getDoctrine()->getManager();
         return $this->render('@CursoSymfonyEventos/AdminEvento/listar.html.twig', array(
-                    'eventos' => $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventosAlfabeticamenteConUsuariosOptimizada()
+                    'eventos' => $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventos()
         ));
     }
 

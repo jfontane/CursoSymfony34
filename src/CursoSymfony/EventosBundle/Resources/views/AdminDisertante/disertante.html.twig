@@ -1,0 +1,31 @@
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Disertante{% endblock %}
+{% block pageid 'admin' %}
+
+    {% block body %}
+        {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
+        <h1>{{disertante}}</h1>
+        <p>{{disertante.biografia | striptags }}</p>
+        <p><strong>Teléfono:</strong> {{disertante.telefono}}</p>
+        <p><strong>Página:</strong> {{disertante.url}}</p>
+        <p><strong>Imparte los siguientes eventos</strong></p>
+        <ul>
+            <!-- ITERACIÓN SOBRE LOS EVENTOS DE UN DISERTANTE -->
+            {% for evento in disertante.eventos %}
+                <li>
+                    <a href="{{ path('evento', { 'slug': evento.slug})  }}">{{ evento.titulo | capitalize }}</a>
+                    <p>
+                        {{ evento.hora | date('H:i') }} - {{ evento.horaFinalizacion | date('H:i') }}
+                    </p>
+                    <p>{{ evento.descripcion }}</p>
+                </li>
+            {% else %}
+                <li>
+                    <p>No imparte ningún evento</p>
+                </li>
+                <!-- CONSIDERAR EL CASO DE QUE NO EXISTAN EVENTOS -->
+                <!-- FIN ITERACIÓN SOBRE LOS EVENTOS DE UN DISERTANTE -->
+            {% endfor %}
+        </ul>
+
+    {% endblock %}

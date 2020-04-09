@@ -1,0 +1,56 @@
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Nuevo disertante{% endblock %}
+{% block pageid 'admin' %}
+    {% block body %}
+        <!-- AGREGAR CÓDIGO FALTANTE -->
+        {{ form_errors(form) }}
+        {{ form_start(form) }}
+        {{ form_errors(form.nombre) }}
+        <p>
+            {{ form_label(form.nombre) }}
+            {{ form_widget(form.nombre) }}
+        </p>
+        {{ form_errors(form.apellidos) }}
+        <p>
+            {{ form_label(form.apellidos) }}
+            {{ form_widget(form.apellidos) }}
+        </p>
+        {{ form_errors(form.biografia) }}
+        <p>
+            {{ form_label(form.biografia) }}
+            {{ form_widget(form.biografia) }}
+        </p>
+        {{ form_errors(form.telefono) }}
+        <p>
+            {{ form_label(form.telefono) }}
+            {{ form_widget(form.telefono) }}
+        </p>
+        {{ form_errors(form.direccion) }}
+        <p>
+            {{ form_label(form.direccion) }}
+            {{ form_widget(form.direccion) }}
+        </p>
+        {{ form_errors(form.url) }}
+        <p>
+            {{ form_label(form.url) }}
+            {{ form_widget(form.url) }}
+        </p>
+        {{ form_errors(form.email) }}
+        <p>
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </p>
+        {{ form_errors(form.twitter) }}
+        <p>
+            {{ form_label(form.twitter) }}
+            {{ form_widget(form.twitter) }}
+        </p>
+        {{ form_errors(form.linkedin) }}
+        <p>
+            {{ form_label(form.linkedin) }}
+            {{ form_widget(form.linkedin) }}
+        </p>
+        <p>
+
+            {{ form_end(form) }}
+        {% endblock %}

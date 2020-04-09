@@ -28,6 +28,16 @@ admin_disertante_listar:
     path: /disertante/listar
     defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:listar }
         
+admin_disertante:
+    path: /disertante/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:disertante }
+    requirements:
+        id: \d+
+        
+admin_disertante_borrar:
+    path: /disertante/borrar/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:borrar }
+
 admin_disertante_nuevo:
     path: /disertante/nuevo
     defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:nuevo }

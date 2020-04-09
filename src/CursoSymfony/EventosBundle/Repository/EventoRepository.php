@@ -31,6 +31,15 @@ class EventoRepository extends EntityRepository {
         return $em->createQuery($dql)->getResult();
     }
     
+    public function findEventos() {
+        $em = $this->getEntityManager();
+        $dql = "SELECT e
+                FROM CursoSymfonyEventosBundle:Evento e 
+                ORDER BY e.titulo ASC";
+        return $em->createQuery($dql)->getResult();
+    }
+    
+    
     public function findEventoConDisertantesPorSlug($slug) {
         $em = $this->getEntityManager();
         $dql = "SELECT e, d
@@ -38,7 +47,7 @@ class EventoRepository extends EntityRepository {
                 JOIN e.disertante d
                 WHERE e.slug = :slug
                 ORDER BY e.titulo ASC";
-        return $em->createQuery($dql)->setParameter('slug',$slug)->getResult();
+        return $em->createQuery($dql)->setParameter('slug',$slug)->getOneOrNullResult();
     }
     
     public function findEventoConUsuariosPorId($id) {
@@ -48,7 +57,7 @@ class EventoRepository extends EntityRepository {
                 JOIN e.usuarios u
                 WHERE e.id = :id
                 ORDER BY e.titulo ASC";
-        return $em->createQuery($dql)->setParameter('id',$id)->getResult();
+        return $em->createQuery($dql)->setParameter('id',$id)->getOneOrNullResult();
     }
 
     

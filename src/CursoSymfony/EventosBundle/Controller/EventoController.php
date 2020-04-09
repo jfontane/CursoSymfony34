@@ -26,12 +26,12 @@ class EventoController extends Controller {
         $evento = $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventoConDisertantesPorSlug($slug);
         //var_dump($evento[0]->getDisertante()->getApellidos());die;
         //$this->get('session')->getFlashBag()->add('info','Has leído sobre el evento '.$evento[0]->getTitulo().' a las '.date('H:i:s').'.');
-        AbstractBaseController::addInfoMessage('Has leído sobre el evento ' . $evento[0]->getTitulo() . ' a las ' . date('H:i:s') . '.');
+        AbstractBaseController::addInfoMessage('Has leído sobre el evento ' . $evento->getTitulo() . ' a las ' . date('H:i:s') . '.');
         if (!$evento) {
             throw $this->createNotFoundException("No existe el evento solicitado.");
         }
         return $this->render('@CursoSymfonyEventos/Evento/evento.html.twig', array(
-                    'evento' => $evento[0]
+                    'evento' => $evento
         ));
     }
 

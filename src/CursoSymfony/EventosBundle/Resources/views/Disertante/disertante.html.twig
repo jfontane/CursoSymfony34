@@ -8,9 +8,6 @@
 
     {% block contenido %}
         {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
-
-
-
         <h1>{{disertante}}</h1>
         <p>{{disertante.biografia | striptags }}</p>
         <p><strong>Teléfono:</strong> {{disertante.telefono}}</p>
@@ -23,12 +20,12 @@
                 <li>
                     <a href="{{ path('evento', {'slug': evento.slug} ) }}">{{evento.titulo | capitalize }}</a>
                     <div>
-                        <div class="grid_2 alpha">
+                        <p>
                             {{ evento.hora | date('H:i') }} - {{ evento.horaFinalizacion | date('H:i') }}
-                        </div>
-                        <div class="grid_10 omega">
-                            <p>{{ evento.descripcion }}</p>
-                        </div>
+                        </p>
+                        <p>
+                            {{ evento.descripcion }}
+                        </p>
                     </div>
                 </li>
                 <!-- CONSIDERAR EL CASO DE QUE NO EXISTAN EVENTOS -->

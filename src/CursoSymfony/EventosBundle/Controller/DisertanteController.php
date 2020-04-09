@@ -9,7 +9,7 @@ class DisertanteController extends Controller {
 
     public function disertantesAction() {
         $em = $this->getDoctrine()->getManager();
-        $d = $em->getRepository('CursoSymfonyEventosBundle:Disertante')->findDisertantesAlfabeticamente();
+        $d = $em->getRepository('CursoSymfonyEventosBundle:Disertante')->findDisertantesAlfabeticamenteConEventos();
         return $this->render('@CursoSymfonyEventos/Disertante/disertantes.html.twig', array(
                     'disertantes' => $d
         ));
@@ -21,7 +21,7 @@ class DisertanteController extends Controller {
         $d = $em->getRepository('CursoSymfonyEventosBundle:Disertante')->findDisertantesConEventosPorId($id);
         //var_dump($d->getNombre());die;
         return $this->render('@CursoSymfonyEventos/Disertante/disertante.html.twig', array(
-                    'disertante' => $d[0]
+                    'disertante' => $d
         ));
     }
 

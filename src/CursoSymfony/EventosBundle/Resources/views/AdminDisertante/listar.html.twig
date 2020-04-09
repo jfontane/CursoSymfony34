@@ -31,8 +31,8 @@
                             <td>{{ disertante.direccion }}</td>
                             <td>{{ disertante.telefono}}</td>
                             <td>
-                                <a href="">Ver</a>
-                                <a href="#" onclick='confirmaBorrar()'>Borrar</a>
+                                <a href=" {{ path( 'admin_disertante' , { 'id' : disertante.id }) }} ">Ver</a>
+                                <a href=" {{ path( 'admin_disertante_borrar' , { 'id' : disertante.id }) }} " >Borrar</a>
                             </td>
                         </tr>
                     {% else %}
@@ -42,7 +42,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <a href="">Nuevo disertante</a>
+            <a href="{{ path('admin_disertante_nuevo') }}"> Nuevo </a>
         </div>
     {% endblock %}
     {% block javascripts %}

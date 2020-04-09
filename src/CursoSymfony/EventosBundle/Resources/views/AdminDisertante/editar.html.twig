@@ -1,0 +1,7 @@
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Editando el disertante "{{ disertante }}"{% endblock %}
+{% block pageid 'admin' %}
+    {% block body %}
+{{ form(form) }}
+<a href="{{ path('admin_disertante_listar') }}">Listado de disertantes</a>
+{% endblock %}
