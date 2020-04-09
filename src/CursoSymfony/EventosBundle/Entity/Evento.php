@@ -4,6 +4,7 @@ namespace CursoSymfony\EventosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use CursoSymfony\EventosBundle\Common\Util;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CursoSymfony\EventosBundle\Entity
@@ -22,6 +23,8 @@ class Evento {
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255")
      */
     protected $titulo;
 
@@ -32,26 +35,32 @@ class Evento {
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="50")
      */
     protected $descripcion;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Date()
      */
     protected $fecha;
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Time() 
      */
     protected $hora;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=0,max=300)
      */
     protected $duracion;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Choice({"es","en"})
      */
     protected $idioma;
 

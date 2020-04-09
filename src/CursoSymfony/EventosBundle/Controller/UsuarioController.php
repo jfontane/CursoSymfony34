@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 use CursoSymfony\EventosBundle\Controller\AbstractBaseController;
 use CursoSymfony\EventosBundle\Form\RegistroType;
 use CursoSymfony\EventosBundle\Entity\Usuario;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 
 class UsuarioController extends Controller {
 
@@ -16,7 +15,7 @@ class UsuarioController extends Controller {
         $form = $this->createForm(RegistroType::class, $usuario);
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             // Obtenemos el usuario
             // $usuario = $form->getData();
             // Codificamos el password

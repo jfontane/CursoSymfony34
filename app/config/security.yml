@@ -2,9 +2,7 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders: 
-        CursoSymfonyEventosBundle\Entity\Usuario: 
-            algorithm: bcrypt
-            cost: 12
+        CursoSymfonyEventosBundle\Entity\Usuario: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:

@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use \Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistroType extends AbstractType {
 
@@ -29,7 +29,7 @@ class RegistroType extends AbstractType {
         //->add('Guardar',SubmitType::class, array('label' => 'Nuevo Usuario'));
     }
 
-    public function configureOptions(\Symfony\Component\OptionsResolver\OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array('data_class' => 'CursoSymfony\EventosBundle\Entity\Usuario'));
     }
 

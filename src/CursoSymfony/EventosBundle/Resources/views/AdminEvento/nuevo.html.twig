@@ -1,0 +1,44 @@
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Nuevo evento{% endblock %}
+{% block pageid 'admin' %}
+    {% block body %}
+        <!-- AGREGAR CÓDIGO FALTANTE -->
+        {{ form_errors(form) }}
+        {{ form_start(form) }}
+        {{ form_errors(form.titulo) }}
+        <p>
+            {{ form_label(form.titulo) }}
+            {{ form_widget(form.titulo) }}
+        </p>
+        {{ form_errors(form.descripcion) }}
+        <p>
+            {{ form_label(form.descripcion) }}
+            {{ form_widget(form.descripcion) }}
+        </p>
+        {{ form_errors(form.fecha) }}
+        <p>
+            {{ form_label(form.fecha) }}
+            {{ form_widget(form.fecha) }}
+        </p>
+        {{ form_errors(form.hora) }}
+        <p>
+            {{ form_label(form.hora) }}
+            {{ form_widget(form.hora) }}
+        </p>
+        {{ form_errors(form.duracion) }}
+        <p>
+            {{ form_label(form.duracion) }}
+            {{ form_widget(form.duracion) }}
+        </p>
+        {{ form_errors(form.idioma) }}
+        <p>
+            {{ form_label(form.idioma) }}
+            {{ form_widget(form.idioma) }}
+        </p>
+        {{ form_errors(form.disertante) }}
+        <p>
+            {{ form_label(form.disertante) }}
+            {{ form_widget(form.disertante) }}
+        </p>
+        {{ form_end(form) }}
+    {% endblock %}

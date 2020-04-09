@@ -91,6 +91,16 @@ class Usuario {
         return $this->id;
     }
 
+    private $plainPassword;
+    
+    public function setPlainPassword($password) {
+      $this->plainPassword=$password;  
+    }
+    
+    public function getPlainPassword() {
+      return $this->plainPassword;  
+    }
+    
     /**
      * Set nombre
      *

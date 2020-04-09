@@ -4,7 +4,11 @@ namespace CursoSymfony\EventosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use CursoSymfony\EventosBundle\Controller\AbstractAdminBaseController;
+use CursoSymfony\EventosBundle\Entity\Evento;
+use CursoSymfony\EventosBundle\Form\EventoType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AdminEventoController extends Controller {
 
@@ -34,6 +38,27 @@ class AdminEventoController extends Controller {
         $em->flush();
         AbstractAdminBaseController::addWarnMessage('El evento ' . $evento->getTitulo() . ' se ha borrado correctamente.');
         return $this->redirect($this->generateUrl('admin_evento_listar'));
+    }
+
+    public function nuevoAction(Request $request) {
+        $evento = new Evento();
+        $evento->setFecha(new \DateTime('now'));
+        $evento->setHora(new \DateTime('now'));
+        $evento->setDuracion(2);
+        $form = $this->createForm(EventoType::class, $evento)->add('Guardar', SubmitType::class);
+// AGREGAR AL FORM BOTÓN DE SUBMIT CON ETIQUETA “Guardar”
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($evento);
+            $em->flush();
+            AbstractAdminBaseController::addWarnMessage("El evento '" . $evento->getTitulo()
+                    . "' se ha creado correctamente.");
+            return $this->redirect($this->generateUrl('admin_evento_listar'));
+        }
+// AGREGAR CÓDIGO FALTANTE
+        return $this->render('@CursoSymfonyEventos/AdminEvento/nuevo.html.twig', array('form' => $form->createView(),
+        ));
     }
 
 }
