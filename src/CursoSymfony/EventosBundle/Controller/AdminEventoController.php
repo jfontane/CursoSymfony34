@@ -72,7 +72,7 @@ class AdminEventoController extends Controller {
                 ->add('Guardar', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            //$evento->setDescripcion($this->getUtil()->autoLinkText($evento->getDescripcion()));
+            $evento->setDescripcion($this->getUtil()->autoLinkText($evento->getDescripcion()));
             $em->persist($evento);
             $em->flush();
             AbstractAdminBaseController::addWarnMessage('El evento "' . $evento->getTitulo()

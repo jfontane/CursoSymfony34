@@ -5,6 +5,11 @@ parameters:
 
 services:
     # default configuration for services in *this* file
+    eventos.helpers:
+        class: CursoSymfony\EventosBundle\Services\Helpers
+        arguments: ["null"]
+        public: true
+
     _defaults:
         # automatically injects dependencies in your services
         autowire: true
