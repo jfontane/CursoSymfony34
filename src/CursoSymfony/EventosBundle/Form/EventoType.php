@@ -34,7 +34,7 @@ class EventoType extends AbstractType {
                 ))
                 ->add('duracion')
                 ->add('idioma', ChoiceType::class, array(
-                    'choices' => array('es' => 'es', 'en' => 'en')
+                    'choices' => array('Español' => 'Es', 'Ingles' => 'en')
                 ))
                 ->add('disertante', EntityType::class, array(
                     'class' => 'CursoSymfony\\EventosBundle\\Entity\\Disertante',

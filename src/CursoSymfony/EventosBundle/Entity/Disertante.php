@@ -174,6 +174,28 @@ class Disertante {
     }
 
     /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Disertante
+     */
+    public function setDireccion($direccion) {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getDireccion() {
+        return $this->direccion;
+    }
+    
+    /**
      * Set url
      *
      * @param string $url

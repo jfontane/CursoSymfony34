@@ -18,3 +18,23 @@ admin_evento_nuevo:
     path: /evento/nuevo
     defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:nuevo }
     
+admin_evento_editar:
+    path: /evento/editar/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminEvento:editar }
+    requirements:
+        id: \d+
+
+admin_disertante_listar:
+    path: /disertante/listar
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:listar }
+        
+admin_disertante_nuevo:
+    path: /disertante/nuevo
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:nuevo }
+
+admin_disertante_editar:
+    path: /disertante/editar/{id}
+    defaults: { _controller: CursoSymfonyEventosBundle:AdminDisertante:editar }
+    requirements:
+        id: \d+        
+    

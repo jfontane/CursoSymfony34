@@ -14,7 +14,8 @@ class AdminEventoController extends Controller {
 
     public function listarAction() {
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@CursoSymfonyEventos/AdminEvento/listar.html.twig', array('eventos' => $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventosAlfabeticamente()
+        return $this->render('@CursoSymfonyEventos/AdminEvento/listar.html.twig', array(
+                    'eventos' => $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventosAlfabeticamenteConUsuariosOptimizada()
         ));
     }
 
@@ -45,7 +46,8 @@ class AdminEventoController extends Controller {
         $evento->setFecha(new \DateTime('now'));
         $evento->setHora(new \DateTime('now'));
         $evento->setDuracion(2);
-        $form = $this->createForm(EventoType::class, $evento)->add('Guardar', SubmitType::class);
+        $form = $this->createForm(EventoType::class, $evento)
+                ->add('Guardar', SubmitType::class);
 // AGREGAR AL FORM BOTÓN DE SUBMIT CON ETIQUETA “Guardar”
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -58,6 +60,27 @@ class AdminEventoController extends Controller {
         }
 // AGREGAR CÓDIGO FALTANTE
         return $this->render('@CursoSymfonyEventos/AdminEvento/nuevo.html.twig', array('form' => $form->createView(),
+        ));
+    }
+
+    public function editarAction(Request $request, $id) {
+        $em = $this->getDoctrine()->getManager();
+        if (null == $evento = $em->find('CursoSymfonyEventosBundle:Evento', $id)) {
+            throw $this->createNotFoundException('No existe el evento solicitado.');
+        }
+        $form = $this->createForm(EventoType::class, $evento)
+                ->add('Guardar', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$evento->setDescripcion($this->getUtil()->autoLinkText($evento->getDescripcion()));
+            $em->persist($evento);
+            $em->flush();
+            AbstractAdminBaseController::addWarnMessage('El evento "' . $evento->getTitulo()
+                    . '" se ha modificado correctamente.');
+            return $this->redirect($this->generateUrl('admin_evento_listar'));
+        }
+        return $this->render('@CursoSymfonyEventos/AdminEvento/editar.html.twig'
+                        , array('form' => $form->createView(), 'evento' => $evento
         ));
     }
 

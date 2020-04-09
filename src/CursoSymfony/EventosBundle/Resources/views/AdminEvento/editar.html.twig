@@ -1,0 +1,7 @@
+{% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
+{% block title %}Editando el evento "{{ evento.titulo }}"{% endblock %}
+{% block pageid 'admin' %}
+    {% block body %}
+{{ form(form) }}
+<a href="{{ path('admin_evento_listar') }}">Listado de eventos</a>
+{% endblock %}

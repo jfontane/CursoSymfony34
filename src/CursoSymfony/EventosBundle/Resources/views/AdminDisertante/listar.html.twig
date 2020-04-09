@@ -1,5 +1,5 @@
 {% extends "@CursoSymfonyEventos/layout-admin.html.twig" %}
-{% block title %}Listado de Eventos{% endblock %}
+{% block title %}Listado de Disertantes{% endblock %}
 {% block pageid 'admin' %}
 
     {% block body %}
@@ -24,33 +24,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for evento in eventos %}
+                    {% for disertante in disertantes %}
                         <tr>
-                            <td>{{ evento.fecha | date('d/m/Y') }} {{ evento.hora | date('H:i') }} </td>
-                            <td><a href="{{ path('admin_evento_editar',{'id' : evento.id}) }}">{{ evento.titulo }}</a></td>
-                            <td>{{ evento.idioma }}</td>
-                            <td>{{ evento.usuarios | length }}</td>
+                            <td>{{ disertante.id }} </td>
+                            <td><a href="{{ path('admin_disertante_editar',{'id' : disertante.id}) }}">{{ disertante }}</a></td>
+                            <td>{{ disertante.direccion }}</td>
+                            <td>{{ disertante.telefono}}</td>
                             <td>
-                                <a href="{{ path('admin_evento_inscriptos',{'id' : evento.id}) }}">Ver inscriptos</a>
-                                <a href=" {{ path('admin_evento_borrar',{'id': evento.id}) }} ">Borrar</a>
+                                <a href="">Ver</a>
+                                <a href="#" onclick='confirmaBorrar()'>Borrar</a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5">No existe ningún evento</td>
+                            <td colspan="5">No existe ningún disertante</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <a href="{{ path('admin_evento_nuevo') }}">Nuevo evento</a>
+            <a href="">Nuevo disertante</a>
         </div>
     {% endblock %}
-{% block javascripts %}
+    {% block javascripts %}
         <script>
             function confirmaBorrar() {
-                if (confirm("Desea Eliminar un Evento???")) {
-                    //location.href
+                if (confirm("Desea Eliminar un Disertante???")) {
+                    location.href = '{{ path('portada') }}';
                 }
+
             }
         </script>
     {% endblock %}
