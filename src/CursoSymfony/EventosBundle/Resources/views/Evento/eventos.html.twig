@@ -18,7 +18,7 @@
                 </div>
                 <div class="grid_10 omega">
                     <a href="{{ path('evento', {'slug': evento.slug} ) }}">{{ evento.titulo }}</a>
-                    <p>{{ evento.descripcion }}</p>
+                    <p>{{ evento.descripcion | raw }}</p>
                 </div>
             </div>
         {% endfor %}
