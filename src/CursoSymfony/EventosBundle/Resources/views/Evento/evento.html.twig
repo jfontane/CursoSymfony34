@@ -8,7 +8,7 @@ date("d M") }}.{% endblock %}
             {# CONTENIDO ORIGINAL DEL ARCHIVO Y SIN LAS ETIQUETAS <html><body> � </body></html> #}
 
             <h1>{{ evento.titulo }}</h1>
-            <p>{{ evento.descripcion }}</p>
+            <p>{{ evento.descripcion | raw }}</p>
             <div class="grid_2 alpha">
                 <strong>Fecha</strong> {{ evento.fecha | date("d M") }}
             </div>
