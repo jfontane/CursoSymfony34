@@ -1,6 +1,6 @@
 <?php
 
-namespace CursoSymfony\EventosBundle\Common;
+namespace CursoSymfony\EventosBundle\Services;
 
 /**
  * Util

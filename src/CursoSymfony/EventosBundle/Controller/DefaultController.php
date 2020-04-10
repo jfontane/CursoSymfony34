@@ -20,7 +20,7 @@ class DefaultController extends Controller {
 
     public function indexAction() {
         //return new Response("holaaaa");
-        $helpers = $this->get("eventos.helpers");
+        $helpers = $this->get("app.helpers");
         return new Response($helpers->hola());
     }
 
