@@ -66,7 +66,7 @@ class Usuario {
     protected $password;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     protected $notificaciones;
 
@@ -80,6 +80,7 @@ class Usuario {
      */
     public function __construct() {
         $this->eventos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->notificaciones = FALSE;
     }
 
     /**
@@ -92,15 +93,15 @@ class Usuario {
     }
 
     private $plainPassword;
-    
+
     public function setPlainPassword($password) {
-      $this->plainPassword=$password;  
+        $this->plainPassword = $password;
     }
-    
+
     public function getPlainPassword() {
-      return $this->plainPassword;  
+        return $this->plainPassword;
     }
-    
+
     /**
      * Set nombre
      *

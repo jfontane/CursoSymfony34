@@ -29,4 +29,8 @@ class AbstractAdminBaseController extends Controller {
         return $this->get('session')->getFlashBag()->add('error', $msg);
     }
 
+    protected function getUtil() {
+        return $this->get('eventos.util');
+    }
+
 }

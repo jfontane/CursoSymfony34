@@ -51,6 +51,7 @@ class AdminEventoController extends Controller {
 // AGREGAR AL FORM BOTÓN DE SUBMIT CON ETIQUETA “Guardar”
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $evento->setDescripcion($this->get('eventos.util')->autoLinkText($evento->getDescripcion()));
             $em = $this->getDoctrine()->getManager();
             $em->persist($evento);
             $em->flush();
