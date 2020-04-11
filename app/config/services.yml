@@ -3,7 +3,7 @@
 parameters:
     #parameter_name: value
     eventos.util.class: CursoSymfony\EventosBundle\Common\Util
-
+    eventos.notificacion.class: CursoSymfony\EventosBundle\Common\Notificacion
 
 services:
     # default configuration for services in *this* file
@@ -14,6 +14,11 @@ services:
     
     eventos.util:
         class: %eventos.util.class%
+        public: true
+        
+    eventos.notificacion: 
+        class: %eventos.notificacion.class%    
+        arguments: ["@doctrine", "@mailer"]
         public: true
 
     _defaults:

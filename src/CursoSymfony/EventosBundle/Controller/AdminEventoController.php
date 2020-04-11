@@ -57,6 +57,7 @@ class AdminEventoController extends Controller {
             $em->flush();
             AbstractAdminBaseController::addWarnMessage("El evento '" . $evento->getTitulo()
                     . "' se ha creado correctamente.");
+            $this->get('eventos.notificacion')->sendToAll('Symfony 2020!', 'Se ha creado el evento ' . $evento . '.');
             return $this->redirect($this->generateUrl('admin_evento_listar'));
         }
 // AGREGAR CÓDIGO FALTANTE
@@ -78,6 +79,7 @@ class AdminEventoController extends Controller {
             $em->flush();
             AbstractAdminBaseController::addWarnMessage('El evento "' . $evento->getTitulo()
                     . '" se ha modificado correctamente.');
+            $this->get('eventos.notificacion')->sendToAll('Symfony 2020!', 'Se ha actualizado el evento ' . $evento . '.');
             return $this->redirect($this->generateUrl('admin_evento_listar'));
         }
         return $this->render('@CursoSymfonyEventos/AdminEvento/editar.html.twig'
