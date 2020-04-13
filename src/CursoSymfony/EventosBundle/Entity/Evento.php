@@ -310,5 +310,9 @@ class Evento {
     public function getHoraFinalizacion() {
         return $this->hora->add(new \DateInterval('PT' . $this->duracion . 'M'));
     }
+    
+    public function __toString() {
+        return $this->getTitulo();
+    }
 
 }

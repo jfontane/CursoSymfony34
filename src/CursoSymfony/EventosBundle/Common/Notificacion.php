@@ -17,7 +17,7 @@ class Notificacion {
     public function sendToAll($titulo, $descripion) {
         $em = $this->doctrine->getManager();
 
-        $usuarios = $em->getRepository('EventosBundle:Usuario')
+        $usuarios = $em->getRepository('CursoSymfonyEventosBundle:Usuario')
                 ->findBy(array('notificaciones' => TRUE));
 
         if (count($usuarios) > 0) {
