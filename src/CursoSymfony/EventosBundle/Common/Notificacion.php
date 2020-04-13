@@ -20,7 +20,7 @@ class Notificacion {
         $usuarios = $em->getRepository('CursoSymfonyEventosBundle:Usuario')
                 ->findBy(array('notificaciones' => TRUE));
 
-        if (count($usuarios) > 0) {
+       // if (count($usuarios) > 0) {
 
             $emails = array();
             /*foreach ($usuarios as $usuario) {
@@ -29,12 +29,12 @@ class Notificacion {
             $emails['jfontanellaz@gmail.com'];
             $mensaje = Swift_Message::newInstance()
                     ->setSubject($titulo)
-                    ->setFrom(array('no_reply@escuela40.net' => 'Curso Symfony'))
+                    ->setFrom(array('no-reply@eventos.local' => 'Curso Symfony'))
                     ->setBcc($emails)
                     ->setBody($descripion);
 
             $this->mailer->send($mensaje);
-        }
+       // }
     }
 
 }
