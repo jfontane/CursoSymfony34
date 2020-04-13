@@ -29,7 +29,7 @@ class Notificacion {
             $emails['jfontanellaz@gmail.com'];
             $mensaje = Swift_Message::newInstance()
                     ->setSubject($titulo)
-                    ->setFrom(array('no-reply@eventos.local' => 'Curso Symfony'))
+                    ->setFrom(array('no_reply@escuela40.net' => 'Curso Symfony'))
                     ->setBcc($emails)
                     ->setBody($descripion);
 
