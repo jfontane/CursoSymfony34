@@ -25,7 +25,7 @@ class AdminEventoController extends Controller {
         $e = $em->getRepository('CursoSymfonyEventosBundle:Evento')->findEventoConUsuariosPorId($id);
         //var_dump($d->getNombre());die;
         return $this->render('@CursoSymfonyEventos/AdminEvento/inscriptos.html.twig', array(
-                    'evento' => $e[0]
+                    'evento' => $e
         ));
     }
 
