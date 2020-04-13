@@ -26,7 +26,7 @@ class Notificacion {
             /*foreach ($usuarios as $usuario) {
                 $emails[] = $usuario->getEmail();
             }*/
-            $emails['jfontanellaz@gmail.com'];
+            $emails[] = 'jfontanellaz@gmail.com';
             $mensaje = Swift_Message::newInstance()
                     ->setSubject($titulo)
                     ->setFrom(array('no_reply@escuela40.net' => 'Curso Symfony'))
